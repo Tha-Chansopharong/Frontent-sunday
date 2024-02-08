@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register form</title>
+</head>
+
+<style>
+    body{
+        background-color: gray;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    form{
+        width: 50%;
+        margin: 40px auto;
+        background-color: white;
+        border-radius: 10px;
+        padding: 50px 20px;
+    }
+    form:hover{
+        box-shadow: 0px 5px 1px black;
+        /* shadow left = 0px , shadow top = 5px  */
+    }
+    table{
+        width: 100%;
+        margin-top: 20px;
+    }
+    label{
+        padding: 10px;
+        font-weight: 10px;
+    }
+    input{
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        border: 1px solid rgb(181,178,178);
+    }
+    input[type="button"]{
+        background-color: rgb(158,158,246);
+        color: black;
+        width: 30%;
+        margin-top: 30px;
+    }
+    input[type="button"]:hover{
+        background-color: blue;
+        color: white;
+    }
+    /* smart phone size 767px bigest size  */
+    @media(max-width:767px) {
+       form{
+        width: 90%;
+        padding: 10px 10px;
+       }
+       input[type="button"]{
+        width: 100%;
+
+       }
+        
+    }
+    /* dynamic table */
+   #outPutTable{
+        border: 1px solid black;
+        border-spacing: 0px;
+    }
+    th{
+        background-color: rgb(113, 204, 204);
+        padding: 10px;
+    }
+    #outPutTable td{
+        border: 1px solid black;
+        padding: 10px;
+    }
+    #outPutTable tr {
+        transition: background-color 0.3s;
+    }
+    #outPutTable tr:hover{
+        background-color: blue;
+    }
+
+</style>
+<body>
+    <form action="">
+        <table border="1px" >
+            <tr>
+                <td><label for="">First Name:</label></td>
+                <td><input type="text" id="fname"></td>
+            </tr>
+            <tr>
+                <td><label for="">Last Name:</label></td>
+                <td><input type="text" id="lname"></td>
+            </tr>
+            <tr>
+                <td><label for="">Age:</label></td>
+                <td><input type="number" id="age"></td>
+            </tr>
+            <tr>
+                <td><label for="">Gmail:</label></td>
+                <td><input type="email" id="gmail"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="button" value="Save" onclick="displayInfo()"></td>
+            </tr>
+        </table>
+    </form>
+
+    <!-- dinamic table  -->
+    <table id="outPutTable">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+                <th>Gmail</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <!-- processing of javascript -->
+        </tbody>
+    </table>
+    
+</body>
+</html>
+
+<script>
+    function displayInfo(){
+
+        // get the values of the input fields
+       var firstName = document.getElementById('fname').value;
+        
+        var lastName = document.getElementById('lname').value;
+        var age = document.getElementById('age').value;
+        var gmail = document.getElementById('gmail').value;
+
+        //retrieve element of table where insert row
+        var table;
+        table = document.getElementById('outPutTable').getElementsByTagName("tbody")[0];
+        //insertRow()create<tr> of table or table row 
+        var newRow;
+        newRow = table.insertRow();
+
+        // insertCell() is for adding a new cell
+        var cell0 = newRow.insertCell(0); // fname
+        var cell1 = newRow.insertCell(1);
+        var cell2 = newRow.insertCell(2);
+        var cell3 = newRow.insertCell(3);
+
+        cell0.innerHTML = firstName;
+        cell1.innerHTML = lastName;
+        cell2.innerHTML = age;
+        cell3.innerHTML = gmail;
+
+
+
+    }
+
+</script>

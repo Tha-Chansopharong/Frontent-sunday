@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery Homework2</title>
+    <script src="jquery-3.7.1.min.js"></script>
+  </head>
+  <style>
+    
+  </style>
+  <body>
+    <div id="imageGallery">
+      <div class="btn">
+        <button data-category="all">All</button>
+        <button data-category="html">html</button>
+        <button data-category="css">css</button>
+        <button data-category="javascript">javascript</button>
+        <button data-category="jquery">jquery</button>
+        <button data-category="boostrab">bootstrab</button>
+      </div>
+      <br /><br /><br />
+      <div class="image html">
+        <img src="image/html.png" alt="html" />
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Est aliquam
+          sunt mollitia reiciendis consectetur voluptatibus veniam voluptate,
+          deleniti dolore molestias odit animi facilis harum iure magnam. Illo
+          delectus odit a!
+        </p>
+      </div>
+      <div class="image css">
+        <img src="image/css.png" alt="css" />
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita
+          reprehenderit tempore nobis ipsum, animi minus nemo quod dolore
+          dolores omnis! Dignissimos harum inventore fugit veniam placeat aut
+          iure repellat cupiditate?
+        </p>
+      </div>
+      <div class="image javascript">
+        <img src="image/js.png" alt="js">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita
+            reprehenderit tempore nobis ipsum, animi minus nemo quod dolore
+            dolores omnis! Dignissimos harum inventore fugit veniam placeat aut
+            iure repellat cupiditate?
+        </p>
+      </div>
+      <div class="image jquery">
+        <img src="image/jQuery.png" alt="jQuery">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita
+            reprehenderit tempore nobis ipsum, animi minus nemo quod dolore
+            dolores omnis! Dignissimos harum inventore fugit veniam placeat aut
+            iure repellat cupiditate?
+        </p>
+      </div>
+      <div class="image bootstrab">
+        <img src="image/boostrap.png" alt="bootstrap">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita
+            reprehenderit tempore nobis ipsum, animi minus nemo quod dolore
+            dolores omnis! Dignissimos harum inventore fugit veniam placeat aut
+            iure repellat cupiditate?
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+    $(document).ready(function(){
+        $("#imageGallery button").click(function(){
+            var category = $(this).data('category');
+            if(category == 'all'){
+                $(".image").show();
+            }else{
+                $(".image").hide();
+                $('.' + category).show();
+            }
+        });
+    });
+</script>

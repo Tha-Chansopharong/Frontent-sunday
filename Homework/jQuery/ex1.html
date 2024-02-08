@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> jQuery Homework1</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    
+</head>
+<style>
+    #imageSlider{
+        overflow: hidden;
+        width: 300px; 
+        
+        /*Adjust the width as needed */
+        margin: 90px auto;
+        background-color: blue;
+        padding: 10px;
+    }
+    ul{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+    li{
+        flex: 0 0 300px; 
+        /*Adjust the width as needed*/
+    }
+    img{
+        width: 100%;
+        height: auto;
+    }
+</style>
+<body>
+    <div id="imageSlider">
+        <ul>
+            <li><img src="image/html.png" alt="Image1"></li>
+            <li><img src="image/css.png" alt="Image2"></li>
+            <li><img src="image/js.png" alt="Image3"></li>
+            <li><img src="image/jQuery.png" alt="Image4"></li>
+            <li><img src="image/boostrap.png" alt="Image5"></li>
+        </ul>
+    </div>
+    
+</body>
+</html>
+<script>
+    $(document).ready(function(){
+        var currentIndex = 0;
+        var slideInterval= setInterval(nextSlide,8000);// change slide every 1 seconds
+
+        function nextSlide(){
+            currentIndex = (currentIndex + 1) % $('ul li').length;
+            updateSlider();
+        }
+
+        function updateSlider(){
+            var newTransformValue = -currentIndex *300; // adjust based on the width of each image
+            $('ul').css('transform','translateX('+ newTransformValue +'px)');
+        }
+
+        // Pause the slide show on hover
+
+        $('#imageSlider').hover(
+            function(){
+                clearInterval(slideInterval);
+            },
+            function(){
+                slideInterval = setInterval(nextSlide, 1000);
+            }
+        )
+    })
+</script>

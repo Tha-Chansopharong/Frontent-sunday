@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator </title>
+</head>
+<style>
+    .calculator{
+        background-color: pink;
+        width: 300px;
+        padding: 20px;  
+        margin:auto ;
+        margin-top: 40px;
+        border-radius:10px;
+        box-shadow: 0px 0px 10px black ;  
+        /* left buttom  opacity  */
+    }
+    .buttons{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); 
+        gap: 10px;
+
+    }
+    input{
+        width: 93%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: none;
+        border-radius: 10px;
+        font-size: 35px;
+        text-align: right;
+    }
+    button{
+        font-size: 24px;
+        padding:10px;
+        border-radius:10px;
+        box-shadow:0px 0px 5px rgb(155, 143, 143);
+        border: none;
+    }
+    button:hover{
+        background-color: rgb(124, 124, 212);
+    }
+    #equal{
+        background-color: yellow;
+    }
+    
+
+</style>
+<body>
+    <div class="calculator">
+        <input type="text" readonly id="result">
+        <div class="buttons">
+            <button onclick="calculate('/')">÷</button>
+            <button onclick="clearNum()">c</button>
+            <button onclick="calculate('*')">*</button>
+            <button onclick="calculate('-')">-</button>
+
+            <button onclick="addNum('7')">7</button>
+            <button onclick="addNum('8')">8</button>
+            <button onclick="addNum('9')">9</button>
+            <button onclick="addNum('+')">+</button>
+
+            <button onclick="addNum('4')">4</button>
+            <button onclick="addNum('5')">5</button>
+            <button onclick="addNum('6')">6</button>
+            <button onclick="addNum('.')">.</button>
+
+            <button onclick="addNum('1')">1</button>
+            <button onclick="addNum('2')">2</button>
+            <button onclick="addNum('3')">3</button>
+            <button id="equal" onclick="getResult()"  >=</button>
+
+            <button onclick="addNum('0')">0</button>
+            
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    let input = '';
+    let result = '';
+    function addNum(values) { 
+        // input += value ; input = input + value;
+        input += values;  // input will store value 
+        document.getElementById('result').value = input; 
+    
+    }
+
+    // clear display
+    function clearNum(){
+        input = '';
+        document.getElementById('result').value = '';
+    }
+
+    // calculate
+    function calculate(operator){
+        input += operator;  // input = input + operator; 
+        document.getElementById('result').value = input; 
+    } 
+
+    // get result 
+    function getResult(){
+        if(isNaN(input)){ // isNaN = if not null
+            result = eval(input); // function eval = evaluate , it will convert 2 value to be calculate 
+            document.getElementById('result').value = result;
+        } else{
+            // input = '';
+            // document.getElementById('result').value = "please input number ";
+
+        }
+       
+       
+    }
+</script>

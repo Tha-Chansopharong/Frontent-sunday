@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculate</title>
+</head>
+<style>
+    /* body{
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0px;
+    } */
+    form{
+        border: 1px solid black;
+        width: 400px;
+        padding: 40px;
+        border-radius: 8px;
+        margin: 20px auto;
+    }
+    table{
+        margin: auto;
+        border-spacing: 20px;
+    }
+    input{
+        border: 1px solid gray;
+        border-radius: 5px;
+        padding: 10px;
+    }
+    input[type="button"]:hover{
+        background-color: blue;
+        color: whitesmoke;
+    }
+    td p{
+        color: red;
+        font-size: 25px;
+    }
+    /* Responsive */
+    body{
+        margin: 0px;
+
+    }
+    /* size 767px for smart phone */
+    @media(max-width:767px){
+        form{
+            padding: 10px;
+            font-size: x-large;
+        }
+        input[type="button"]{
+            font-size: large;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    }
+
+</style>
+<body>
+    <form action="">
+        <table border="0px">
+            <tr>
+                <td><label for="">1st number:</label></td>
+                <td><input type="text" id="inputNum1"></td>
+            </tr>
+            <tr>
+                <td><label for="">2nd number:</label></td>
+                <td><input type="text" id="inputNum2"></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" value="plus" onclick="plus()">
+                    <input type="button" value="substract" onclick="substract()">
+                </td>
+                <td>
+                    <input type="button" value="multiply" onclick="multiply()">
+                    <input type="button" value="divide" onclick="divide()">
+                </td>
+            </tr>
+            <tr>
+                <td><p>The result is:</p></td>
+                <td><p id="result"></p></td>
+            </tr>
+        </table>
+    </form>
+
+    
+</body>
+</html>
+
+<script>
+    // function plus(){
+    //     var num1 = document.getElementById("inputNum1").value;
+    //     var num2 = document.getElementById("inputNum2").value;
+
+
+    //     //parsInt(num1) for convert to integer
+
+    //     num1 = parseInt(num1, 10);
+    //     num2 = parseInt(num2, 10);
+
+    //     if(isNaN(num1) || isNaN(num2)){
+    //         alert("please input number before click button.");
+    //     }
+
+
+    //    // var sum = num1 + num2 ;
+    //     document.getElementById("result").innerHTML = num1 + num2;
+    // }
+        function plus(){
+            var value = getValues();
+            var plu = value.num1 + value.num2;
+
+            document.getElementById("result").innerHTML = plu;
+        }
+
+        function substract(){
+            var value = getValues();
+            var sub = value.num1 - value.num2;
+
+            document.getElementById("result").innerHTML = sub;
+        }
+        function multiply(){
+            var value = getValues();
+            var mul = value.num1 * value.num2;
+
+            document.getElementById("result").innerHTML = mul;
+        }
+
+        function divide(){
+            var value = getValues();
+            var div = value.num1 / value.num2;
+
+            document.getElementById("result").innerHTML = div;
+        }
+        // functions
+        function getValues(){
+            var num1 = document.getElementById("inputNum1").value;
+            var num2 = document.getElementById("inputNum2").value;
+
+            num1 = parseInt(num1 , 10);
+            num2 = parseInt(num2 , 10);
+
+            if(isNaN(num1) || isNaN(num2)){
+                alert("please input number before click button.");
+            }else{
+                return{num1,num2}; // parameters num1 and num2 are dynamic value;
+            }
+        }
+
+</script>

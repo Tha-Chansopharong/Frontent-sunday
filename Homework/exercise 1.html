@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html> 
+<head>
+    <meta charset=utf-8 />
+    <title>JavaScript calculate</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- css -->
+    <style>
+        form {
+            border: 1px solid black;
+            width: 80%; /* Adjusted width for better responsiveness */
+            max-width: 400px; /* Added maximum width for larger screens */
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px auto;
+        }
+
+        table {
+            margin: auto;
+            border-spacing: 10px;
+        }
+
+        input {
+            width: 100%; /* Make inputs full width */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+            margin-bottom: 10px;
+        }
+
+        input[type="button"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 82%; /* Adjusted button width for better display on small screens */
+        }
+
+        input[type="button"]:hover {
+            background-color: #45a049;
+        }
+
+        td p {
+            color: red;
+            font-size: 20px;
+            margin: 0; /* Remove default margin to improve spacing */
+        }
+
+        @media (min-width: 320px) and (max-width: 480px) {
+            form {
+                width: 100%; 
+                height: 700px;
+                background-color: red;
+            }
+
+            input[type="button"] {
+                width: 100%; /* Make buttons full width on small screens */
+            }
+        }
+    </style>
+</head>
+<body><!-- body -->
+    <form"><!-- form -->
+        <table><!-- table -->
+            <tr>
+                <td><label for="num1">1st number:</label></td>
+                <td><input type="text" id="num1"></td>
+            </tr>
+            <tr>
+                <td><label for="num2">2nd number:</label></td>
+                <td><input type="text" id="num2"></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" value="Plus" onclick="plus()">
+                    <input type="button" value="Subtract" onclick="subtract()">
+                </td>
+                <td>
+                    <input type="button" value="Multiply" onclick="multiply()">
+                    <input type="button" value="Divide" onclick="divide()">
+                </td>
+            </tr>
+            <tr>
+                <td><p>The result is: </p></td>
+                <td><p id="result"> </p></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
+<!-- javascript -->
+<script>
+    // define a function plus
+    function plus() {
+        // declare num1, num2 and get the values of the input fields
+       var num1 = document.getElementById("num1").value;
+       var num2 = document.getElementById("num2").value;
+       // convert string to numbers
+       num1 = parseInt(num1, 10);
+       num2 = parseInt(num2, 10);
+       // check the user input if no input number
+       if(isNaN(num1) || isNaN(num2)) {
+        alert("please input number before click buttons");
+       }
+       // perform num1+num2 and output by ID result 
+        document.getElementById("result").innerHTML = num1 + num2;
+    }
+
+    function multiply(){
+        // declare num1, num2 and get the values of the input fields
+        var num1  = document.getElementById("num1").value;
+        var num2 = document.getElementById("num2").value;
+
+        num1 = parseInt(num1, 10);
+        num2 = parseInt(num2, 10);
+
+       if(isNaN(num1) || isNaN(num2)) {
+        alert("please input number before click buttons");
+       }
+       // perform num1+num2 and output by ID result 
+        document.getElementById("result").innerHTML = num1 * num2;
+
+    }
+    function subtract(){
+        // declare num1, num2 and get the values of the input fields
+        var num1  = document.getElementById("num1").value;
+        var num2 = document.getElementById("num2").value;
+
+        num1 = parseInt(num1, 10);
+        num2 = parseInt(num2, 10);
+
+       if(isNaN(num1) || isNaN(num2)) {
+        alert("please input number before click buttons");
+       }
+       // perform num1+num2 and output by ID result 
+        document.getElementById("result").innerHTML = num1 / num2;
+
+    }
+    function divide(){
+        // declare num1, num2 and get the values of the input fields
+        var num1  = document.getElementById("num1").value;
+        var num2 = document.getElementById("num2").value;
+
+        num1 = parseInt(num1, 10);
+        num2 = parseInt(num2, 10);
+
+       if(isNaN(num1) || isNaN(num2)) {
+        alert("please input number before click buttons");
+       }
+       // perform num1+num2 and output by ID result 
+        document.getElementById("result").innerHTML = num1 % num2;
+
+    }
+</script>
+
+
